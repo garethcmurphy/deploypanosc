@@ -14,6 +14,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 service:
+  name: lb-panosc
   type: ClusterIP
   port: 80
 
