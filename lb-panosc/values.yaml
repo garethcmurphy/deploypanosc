@@ -15,8 +15,7 @@ fullnameOverride: ""
 
 service:
   type: ClusterIP
-  externalPort: 80
-  internalPort: 3000
+  port: 3000
 
 ingress:
   enabled: true
