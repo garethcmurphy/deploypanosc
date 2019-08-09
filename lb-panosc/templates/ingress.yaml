@@ -14,7 +14,7 @@ metadata:
   {{- end }}
 spec:
   tls:
-    - secretName: lb-panoscservice
+    - secretName: lbpanoscservice
       hosts:
       - {{ $host }}
   rules:

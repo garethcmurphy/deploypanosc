@@ -30,7 +30,7 @@ ingress:
       paths: [ /panosc ]
 
   tls: 
-    - secretName: lb-panoscservice
+    - secretName: lbpanoscservice
       hosts:
         - scicat01.esss.lu.se
 
