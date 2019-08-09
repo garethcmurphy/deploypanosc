@@ -1,41 +1,22 @@
-# Default values for lb-panosc.
+# Default values for dacat-api-server.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-
 replicaCount: 1
-
 image:
   repository: garethcmurphy/lb-panosc
   tag: latest
-  pullPolicy: IfNotPresent
-
-imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
-
+  pullPolicy: Always
 service:
-  name: lb-panosc
+  name: lbpanosc
   type: ClusterIP
-  port: 80
   externalPort: 80
   internalPort: 3000
-
-
 ingress:
   enabled: true
-  annotations: 
-    kubernetes.io/ssl-redirect: "true"
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  # Used to create an Ingress record.
+  # this will be extended by environment within yaml file
+  # TODO: change service name to include environment ?
   host: scicat01.esss.lu.se
-  hosts:
-    - host: scicat01.esss.lu.se
-      paths: [ /panosc ]
-
-  tls: 
-    - secretName: lbpanoscservice
-      hosts:
-        - scicat01.esss.lu.se
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -43,14 +24,8 @@ resources: {}
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
+  #  cpu: 100m
+  #  memory: 128Mi
   # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
-
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
+  #  cpu: 100m
+  #  memory: 128Mi
