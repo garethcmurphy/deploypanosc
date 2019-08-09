@@ -25,6 +25,7 @@ ingress:
     kubernetes.io/ssl-redirect: "true"
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
+  host: scicat01.esss.lu.se
   hosts:
     - host: scicat01.esss.lu.se
       paths: [ /panosc ]
