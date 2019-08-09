@@ -18,6 +18,8 @@ service:
   type: ClusterIP
   port: 80
   externalPort: 80
+  internalPort: 3000
+
 
 ingress:
   enabled: true
