@@ -27,8 +27,7 @@ spec:
     - host: {{ .host | quote }}
       http:
         paths:
-        {{- range .paths }}
-          - path: {{ . }}
+          - path: /panosc
             backend:
               serviceName: {{ $fullName }}
               servicePort: {{ $servicePort }}
