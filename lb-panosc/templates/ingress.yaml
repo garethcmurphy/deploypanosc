@@ -1,6 +1,7 @@
 {{- if .Values.ingress.enabled -}}
 {{- $fullName := include "lb-panosc.fullname" . -}}
 {{- $servicePort := .Values.service.externalPort -}}
+{{- $host := .Values.ingress.host -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -23,14 +24,10 @@ spec:
   {{- end }}
 {{- end }}
   rules:
-  {{- range .Values.ingress.hosts }}
-    - host: {{ .host | quote }}
+    - host: {{ $host }}
       http:
         paths:
           - path: /panosc
             backend:
               serviceName: {{ $fullName }}
               servicePort: {{ $servicePort }}
-        {{- end }}
-  {{- end }}
-{{- end }}
