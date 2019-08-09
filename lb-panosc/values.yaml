@@ -17,6 +17,7 @@ service:
   name: lb-panosc
   type: ClusterIP
   port: 80
+  externalPort: 80
 
 ingress:
   enabled: true
